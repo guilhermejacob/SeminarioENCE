@@ -4612,16 +4612,16 @@ unzip( tf , exdir = td , junkpaths = TRUE )
 # lista arquivos no diretório
 ( these_files &lt;- list.files( td , full.names = TRUE ) )</pre>
 
-<pre >## [1] &quot;/tmp/RtmpTzNvSw/unzips/Documenta\x87\xc6o RMF - Vers\xc6o 2016.pdf&quot;
-## [2] &quot;/tmp/RtmpTzNvSw/unzips/PEDRMF2016.SAV&quot;                             
-## [3] &quot;/tmp/RtmpTzNvSw/unzips/PEDRMF2016.TXT&quot;</pre>
+<pre >## [1] &quot;/tmp/RtmpumnyjS/unzips/Documenta\x87\xc6o RMF - Vers\xc6o 2016.pdf&quot;
+## [2] &quot;/tmp/RtmpumnyjS/unzips/PEDRMF2016.SAV&quot;                             
+## [3] &quot;/tmp/RtmpumnyjS/unzips/PEDRMF2016.TXT&quot;</pre>
 
 </article></slide><slide class=""><hgroup><h2>Processando o arquivo de dados</h2></hgroup><article  class="smaller" id="processando-o-arquivo-de-dados">
 
 <p>Temos três arquivos com extensões diferentes:</p>
 
 <ul>
-<li><code>.pdf</code>: provalmente um arquivo com a documentação da pesquisa.</li>
+<li><code>.pdf</code>: provavelmente, um arquivo com a documentação da pesquisa.</li>
 <li><code>.SAV</code>: um arquivo de dados no formato do SPSS.</li>
 <li><code>.TXT</code>: um arquivo de texto.</li>
 </ul>
@@ -5469,30 +5469,30 @@ str( df )</pre>
 # arquivo &quot;rj2017.Rds&quot; na pasta &quot;dados/ped&quot;
 saveRDS( df , &quot;dados/sinasc/rj2017.Rds&quot; , compress = TRUE  )</pre>
 
-</article></slide><slide class=""><hgroup><h2><em>Bônus:</em> como ler todos os arquivos!</h2></hgroup><article  class="smaller" id="bonus-como-ler-todos-os-arquivos">
+</article></slide><slide class=""><hgroup><h2><em>Bônus:</em> como ler todo o SINASC/DataSUS 2017!</h2></hgroup><article  class="smaller" id="bonus-como-ler-todo-o-sinascdatasus-2017">
 
 <ul>
 <li>E se estivermos interessados nos agregados do país naquele ano?</li>
 <li><p>Precisamos todas os dados daquele ano.</p></li>
 <li><p>Problema: vários arquivos.</p></li>
-<li>Solução 1: uma linha de comando para cada arquivo.
+<li><strong>Solução 1:</strong> uma linha de comando para cada arquivo.
 
 <ul>
-<li>Copiar 27 vezes a mesma linha de código (mudando apenas o nome do arquivo), depois fazer varios <code>rbind</code>.</li>
+<li>Copiar 27 vezes a mesma linha de código (mudando apenas o nome do arquivo), depois fazer vários <code>rbind</code>.</li>
 <li>Não é <del>nem um pouco</del> muito inteligente</li>
 </ul></li>
-<li>Solução 2: ler cada arquivo e empilhar os dados.
+<li><strong>Solução 2:</strong> ler cada arquivo e empilhar os dados.
 
 <ul>
 <li>Listar todos os arquivos; ler arquivos em uma lista de bases; empilhar as bases.</li>
 </ul></li>
-<li><p>Vamos ficar com a segunda solução.</p></li>
+<li><p>Vamos ficar com a <em>segunda solução</em>.</p></li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2><em>Bônus:</em> como ler todos os arquivos!</h2></hgroup><article  class="smaller" id="bonus-como-ler-todos-os-arquivos-1">
+</article></slide><slide class=""><hgroup><h2><em>Bônus:</em> como ler todo o SINASC/DataSUS 2017!</h2></hgroup><article  class="smaller" id="bonus-como-ler-todo-o-sinascdatasus-2017-1">
 
 <ul>
-<li>O primeiro passo é construir a lista de arquivos.</li>
+<li>O <em>primeiro passo</em> é construir a lista de arquivos.</li>
 <li>Vamos fazer isso listando todos os arquivos do nosso diretório de dados do SINASC/DataSUS:</li>
 </ul>
 
@@ -5509,7 +5509,12 @@ library( data.table ) # pacote para processar dados
 ##  [9] &quot;dados/sinasc/DNGO2017.dbc&quot; &quot;dados/sinasc/DNMA2017.dbc&quot;
 ##  [ reached getOption(&quot;max.print&quot;) -- omitted 17 entries ]</pre>
 
-</article></slide><slide class=""><hgroup><h2><em>Bônus:</em> como ler todos os arquivos!</h2></hgroup><article  class="smaller" id="bonus-como-ler-todos-os-arquivos-2">
+</article></slide><slide class=""><hgroup><h2><em>Bônus:</em> como ler todo o SINASC/DataSUS 2017!</h2></hgroup><article  class="smaller" id="bonus-como-ler-todo-o-sinascdatasus-2017-2">
+
+<ul>
+<li>O <em>segundo passo</em> envolve ler cada arquivo <code>.DBC</code> como um elemento de uma lista.</li>
+<li>Vamos incluir a library <code>data.table</code> nesta parte.</li>
+</ul>
 
 <pre class = 'prettyprint lang-r'># carrega libraries
 library( data.table ) # pacote para processar dados
@@ -5529,12 +5534,32 @@ these_dts &lt;- lapply( these_files , function( this_file ) {
   # retorna data.table
   return( dt )
   
-} )
+} )</pre>
 
-# empilha bases
-dt &lt;- rbindlist( these_dts , use.names = TRUE )</pre>
+</article></slide><slide class=""><hgroup><h2><em>Bônus:</em> como ler todo o SINASC/DataSUS 2017!</h2></hgroup><article  class="smaller" id="bonus-como-ler-todo-o-sinascdatasus-2017-3">
 
-</article></slide><slide class=""><hgroup><h2><em>Bônus:</em> como ler todos os arquivos</h2></hgroup><article  id="bonus-como-ler-todos-os-arquivos-3">
+<ul>
+<li>O <em>terceiro passo</em> envolve <em>&ldquo;empilhar&rdquo;</em> cada base de dados.</li>
+<li>A função <code>rbindlist</code> faz exatamente isto!</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'># empilha bases
+dt &lt;- rbindlist( these_dts , use.names = TRUE )
+
+# mostra número de registro s e colunas na base de dados
+dim( dt )
+# [1] 2923535      64</pre>
+
+<ul>
+<li>A <em>base final de 2017</em> tem:
+
+<ul>
+<li><em>64</em> variáveis;</li>
+<li><strong>2.923.535</strong> observações!</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2><em>Bônus:</em> como ler todo o SINASC/DataSUS 2017!</h2></hgroup><article  id="bonus-como-ler-todo-o-sinascdatasus-2017-4">
 
 <pre class = 'prettyprint lang-r'># calcula agregados por região:
 dt[ , .( nnasc = .N ) , by = .( regiao = substr( codmunres , 1, 1 ) ) ]
@@ -5544,7 +5569,9 @@ dt[ , .( nnasc = .N ) , by = .( regiao = substr( codmunres , 1, 1 ) ) ]
 # 2:      2  817311
 # 3:      3 1151832
 # 4:      4  397604
-# 5:      5  244106</pre></article></slide>
+# 5:      5  244106</pre>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Obrigado! </h2><h3> GitHub: guilhermejacob | Twitter: guijacob91</h3></hgroup><article  id="obrigado-github-guilhermejacob-twitter-guijacob91"></article></slide>
 
 
   <slide class="backdrop"></slide>

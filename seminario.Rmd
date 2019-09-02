@@ -197,7 +197,7 @@ unzip( tf , exdir = td , junkpaths = TRUE )
 
 Temos três arquivos com extensões diferentes:
 
-- `.pdf`: provalmente um arquivo com a documentação da pesquisa.
+- `.pdf`: provavelmente, um arquivo com a documentação da pesquisa.
 - `.SAV`: um arquivo de dados no formato do SPSS.
 - `.TXT`: um arquivo de texto.
 
@@ -455,24 +455,24 @@ Para salvar nosso banco de dados, a ideia é a mesma da seção anterior:
 saveRDS( df , "dados/sinasc/rj2017.Rds" , compress = TRUE  )
 ```
 
-## *Bônus:* como ler todos os arquivos! {.smaller}
+## *Bônus:* como ler todo o SINASC/DataSUS 2017! {.smaller}
 
 - E se estivermos interessados nos agregados do país naquele ano?
 - Precisamos todas os dados daquele ano.
 
 - Problema: vários arquivos.
 
-- Solução 1: uma linha de comando para cada arquivo.
-    - Copiar 27 vezes a mesma linha de código (mudando apenas o nome do arquivo), depois fazer varios `rbind`.
+- **Solução 1:** uma linha de comando para cada arquivo.
+    - Copiar 27 vezes a mesma linha de código (mudando apenas o nome do arquivo), depois fazer vários `rbind`.
     - Não é ~~nem um pouco~~ muito inteligente
-- Solução 2: ler cada arquivo e empilhar os dados.
+- **Solução 2:** ler cada arquivo e empilhar os dados.
     - Listar todos os arquivos; ler arquivos em uma lista de bases; empilhar as bases.
 
-- Vamos ficar com a segunda solução.
+- Vamos ficar com a *segunda solução*.
 
-## *Bônus:* como ler todos os arquivos! {.smaller}
+## *Bônus:* como ler todo o SINASC/DataSUS 2017! {.smaller}
 
-- O primeiro passo é construir a lista de arquivos.
+- O *primeiro passo* é construir a lista de arquivos.
 - Vamos fazer isso listando todos os arquivos do nosso diretório de dados do SINASC/DataSUS:
 
 ```{r , eval=TRUE }
@@ -483,8 +483,10 @@ library( data.table ) # pacote para processar dados
 ( these_files <- list.files( output_folder , full.names = TRUE ) )
 ```
 
-## *Bônus:* como ler todos os arquivos! {.smaller}
+## *Bônus:* como ler todo o SINASC/DataSUS 2017! {.smaller}
 
+- O *segundo passo* envolve ler cada arquivo `.DBC` como um elemento de uma lista.
+- Vamos incluir a library `data.table` nesta parte.
 ```{r , eval=FALSE }
 # carrega libraries
 library( data.table ) # pacote para processar dados
@@ -505,12 +507,27 @@ these_dts <- lapply( these_files , function( this_file ) {
   return( dt )
   
 } )
-
-# empilha bases
-dt <- rbindlist( these_dts , use.names = TRUE )
 ```
 
-## *Bônus:* como ler todos os arquivos
+## *Bônus:* como ler todo o SINASC/DataSUS 2017! {.smaller}
+
+- O *terceiro passo* envolve *"empilhar"* cada base de dados.
+- A função `rbindlist` faz exatamente isto!
+
+```{r , eval=FALSE }
+# empilha bases
+dt <- rbindlist( these_dts , use.names = TRUE )
+
+# mostra número de registro s e colunas na base de dados
+dim( dt )
+# [1] 2923535      64
+```
+
+- A *base final de 2017* tem:
+    - *64* variáveis;
+    - **2.923.535** observações!
+
+## *Bônus:* como ler todo o SINASC/DataSUS 2017!
 
 ```{r, eval = FALSE }
 # calcula agregados por região:
@@ -523,3 +540,5 @@ dt[ , .( nnasc = .N ) , by = .( regiao = substr( codmunres , 1, 1 ) ) ]
 # 4:      4  397604
 # 5:      5  244106
 ```
+
+# Obrigado! | GitHub: guilhermejacob | Twitter: guijacob91
