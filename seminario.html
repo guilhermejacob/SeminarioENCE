@@ -4535,7 +4535,7 @@ slide:not(.current) .plotly.html-widget{
 </ul></li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Coletando links</h2></hgroup><article  class="smaller" id="coletando-links">
+</article></slide><slide class=""><hgroup><h2>Coletando links</h2></hgroup><article  id="coletando-links" class="smaller">
 
 <pre class = 'prettyprint lang-r'># carrega libraries
 library( rvest )
@@ -4559,7 +4559,7 @@ this_html &lt;- read_html( &quot;https://www.dieese.org.br/analiseped/microdados
 ## [10] &quot;https://www.facebook.com/dieese&quot;                    
 ##  [ reached getOption(&quot;max.print&quot;) -- omitted 59 entries ]</pre>
 
-</article></slide><slide class=""><hgroup><h2>Coletando links</h2></hgroup><article  class="smaller" id="coletando-links-1">
+</article></slide><slide class=""><hgroup><h2>Coletando links</h2></hgroup><article  id="coletando-links-1" class="smaller">
 
 <pre class = 'prettyprint lang-r'># filtra links com extensão .zip
 ( these_links &lt;- these_links[ grepl( &quot;\\.zip$&quot; , these_links ) ] )</pre>
@@ -4591,7 +4591,7 @@ this_html &lt;- read_html( &quot;https://www.dieese.org.br/analiseped/microdados
 <li>Salva base de dados no disco.</li>
 </ol>
 
-</article></slide><slide class=""><hgroup><h2>Processando o arquivo <code>.zip</code></h2></hgroup><article  class="smaller" id="processando-o-arquivo-.zip">
+</article></slide><slide class=""><hgroup><h2>Processando o arquivo <code>.zip</code></h2></hgroup><article  id="processando-o-arquivo-.zip" class="smaller">
 
 <pre class = 'prettyprint lang-r'># cria caminho completo para os arquivos
 these_links &lt;- paste0( &quot;https://www.dieese.org.br&quot; , these_links )
@@ -4612,11 +4612,11 @@ unzip( tf , exdir = td , junkpaths = TRUE )
 # lista arquivos no diretório
 ( these_files &lt;- list.files( td , full.names = TRUE ) )</pre>
 
-<pre >## [1] &quot;/tmp/RtmpumnyjS/unzips/Documenta\x87\xc6o RMF - Vers\xc6o 2016.pdf&quot;
-## [2] &quot;/tmp/RtmpumnyjS/unzips/PEDRMF2016.SAV&quot;                             
-## [3] &quot;/tmp/RtmpumnyjS/unzips/PEDRMF2016.TXT&quot;</pre>
+<pre >## [1] &quot;/tmp/Rtmp0VHZmR/unzips/Documenta\x87\xc6o RMF - Vers\xc6o 2016.pdf&quot;
+## [2] &quot;/tmp/Rtmp0VHZmR/unzips/PEDRMF2016.SAV&quot;                             
+## [3] &quot;/tmp/Rtmp0VHZmR/unzips/PEDRMF2016.TXT&quot;</pre>
 
-</article></slide><slide class=""><hgroup><h2>Processando o arquivo de dados</h2></hgroup><article  class="smaller" id="processando-o-arquivo-de-dados">
+</article></slide><slide class=""><hgroup><h2>Processando o arquivo de dados</h2></hgroup><article  id="processando-o-arquivo-de-dados" class="smaller">
 
 <p>Temos três arquivos com extensões diferentes:</p>
 
@@ -4657,7 +4657,7 @@ unzip( tf , exdir = td , junkpaths = TRUE )
 
 </center>
 
-</article></slide><slide class=""><hgroup><h2>Processando o arquivo de dados</h2></hgroup><article  class="smaller" id="processando-o-arquivo-de-dados-1">
+</article></slide><slide class=""><hgroup><h2>Processando o arquivo de dados</h2></hgroup><article  id="processando-o-arquivo-de-dados-1" class="smaller">
 
 <p>Então, ficaremos com o arquivo <code>PEDRMF2016.SAV</code>:</p>
 
@@ -5141,7 +5141,7 @@ str( df )</pre>
 <li>Converter para <code>data.frame</code></li>
 </ol>
 
-</article></slide><slide class=""><hgroup><h2>Processando o arquivo de dados</h2></hgroup><article  class="smaller" id="processando-o-arquivo-de-dados-3">
+</article></slide><slide class=""><hgroup><h2>Processando o arquivo de dados</h2></hgroup><article  id="processando-o-arquivo-de-dados-3" class="smaller">
 
 <pre class = 'prettyprint lang-r'># nomes de colunas em minúsculas
 colnames( df ) &lt;- colnames( df ) %&gt;% tolower()
@@ -5160,7 +5160,7 @@ df[ 1:5 , 1:5 ]</pre>
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["domic"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["familia"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["pessoa"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["municipio"],"name":[4],"type":["fctr"],"align":["left"]},{"label":["conglom"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"10001","2":"1","3":"1","4":"Demais Municípios da RMF","5":"23005300685","_rn_":"1"},{"1":"10001","2":"1","3":"2","4":"Demais Municípios da RMF","5":"23005300685","_rn_":"2"},{"1":"10004","2":"1","3":"1","4":"Demais Municípios da RMF","5":"23005300685","_rn_":"3"},{"1":"10004","2":"1","3":"2","4":"Demais Municípios da RMF","5":"23005300685","_rn_":"4"},{"1":"10004","2":"1","3":"3","4":"Demais Municípios da RMF","5":"23005300685","_rn_":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script></div>
 
-</article></slide><slide class=""><hgroup><h2>Salvando os dados</h2></hgroup><article  class="smaller" id="salvando-os-dados">
+</article></slide><slide class=""><hgroup><h2>Salvando os dados</h2></hgroup><article  id="salvando-os-dados" class="smaller">
 
 <p>Resta salvar nosso banco de dados:</p>
 
@@ -5306,7 +5306,7 @@ substr( these_links , 3 , 4 ) %&gt;% table()</pre>
 ## SP TO 
 ## 22 22</pre>
 
-</article></slide><slide class=""><hgroup><h2>Coletando links</h2></hgroup><article  class="smaller" id="coletando-links-8">
+</article></slide><slide class=""><hgroup><h2>Coletando links</h2></hgroup><article  id="coletando-links-8" class="smaller">
 
 <p>Agora, vamos manter apenas os arquivos referentes a 2017.</p>
 
@@ -5341,7 +5341,7 @@ substr( these_links , 3 , 4 ) %&gt;% table()</pre>
 <li>Vamos tentar a segunda solução!</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Lendo os dados</h2></hgroup><article  class="smaller" id="lendo-os-dados-1">
+</article></slide><slide class=""><hgroup><h2>Lendo os dados</h2></hgroup><article  id="lendo-os-dados-1" class="smaller">
 
 <ul>
 <li><p>Vamos definir a pasta de saída e criá-la, caso ela não exista:</p></li>
@@ -5375,7 +5375,7 @@ for ( this_link in these_links ) {
 <li>Mas o pacote <code>read.dbc</code> resolve este problema!</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Lendo os dados</h2></hgroup><article  class="smaller" id="lendo-os-dados-3">
+</article></slide><slide class=""><hgroup><h2>Lendo os dados</h2></hgroup><article  id="lendo-os-dados-3" class="smaller">
 
 <p>Vamos ler os dados do Rio de Janeiro <code>dados/sinasc/DNRJ2017.dbc</code>:</p>
 
@@ -5461,7 +5461,7 @@ str( df )</pre>
 ##  $ kotelchuck: chr  &quot;5&quot; &quot;5&quot; &quot;5&quot; &quot;2&quot; ...
 ##  - attr(*, &quot;data_types&quot;)= chr  &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; ...</pre>
 
-</article></slide><slide class=""><hgroup><h2>Salvando os dados</h2></hgroup><article  class="smaller" id="salvando-os-dados-1">
+</article></slide><slide class=""><hgroup><h2>Salvando os dados</h2></hgroup><article  id="salvando-os-dados-1" class="smaller">
 
 <p>Para salvar nosso banco de dados, a ideia é a mesma da seção anterior:</p>
 
@@ -5469,7 +5469,7 @@ str( df )</pre>
 # arquivo &quot;rj2017.Rds&quot; na pasta &quot;dados/ped&quot;
 saveRDS( df , &quot;dados/sinasc/rj2017.Rds&quot; , compress = TRUE  )</pre>
 
-</article></slide><slide class=""><hgroup><h2><em>Bônus:</em> como ler todo o SINASC/DataSUS 2017!</h2></hgroup><article  class="smaller" id="bonus-como-ler-todo-o-sinascdatasus-2017">
+</article></slide><slide class=""><hgroup><h2><em>Bônus:</em> como ler todo o SINASC/DataSUS 2017!</h2></hgroup><article  id="bonus-como-ler-todo-o-sinascdatasus-2017" class="smaller">
 
 <ul>
 <li>E se estivermos interessados nos agregados do país naquele ano?</li>
@@ -5489,7 +5489,7 @@ saveRDS( df , &quot;dados/sinasc/rj2017.Rds&quot; , compress = TRUE  )</pre>
 <li><p>Vamos ficar com a <em>segunda solução</em>.</p></li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2><em>Bônus:</em> como ler todo o SINASC/DataSUS 2017!</h2></hgroup><article  class="smaller" id="bonus-como-ler-todo-o-sinascdatasus-2017-1">
+</article></slide><slide class=""><hgroup><h2><em>Bônus:</em> como ler todo o SINASC/DataSUS 2017!</h2></hgroup><article  id="bonus-como-ler-todo-o-sinascdatasus-2017-1" class="smaller">
 
 <ul>
 <li>O <em>primeiro passo</em> é construir a lista de arquivos.</li>
@@ -5509,7 +5509,7 @@ library( data.table ) # pacote para processar dados
 ##  [9] &quot;dados/sinasc/DNGO2017.dbc&quot; &quot;dados/sinasc/DNMA2017.dbc&quot;
 ##  [ reached getOption(&quot;max.print&quot;) -- omitted 17 entries ]</pre>
 
-</article></slide><slide class=""><hgroup><h2><em>Bônus:</em> como ler todo o SINASC/DataSUS 2017!</h2></hgroup><article  class="smaller" id="bonus-como-ler-todo-o-sinascdatasus-2017-2">
+</article></slide><slide class=""><hgroup><h2><em>Bônus:</em> como ler todo o SINASC/DataSUS 2017!</h2></hgroup><article  id="bonus-como-ler-todo-o-sinascdatasus-2017-2" class="smaller">
 
 <ul>
 <li>O <em>segundo passo</em> envolve ler cada arquivo <code>.DBC</code> como um elemento de uma lista.</li>
@@ -5536,7 +5536,7 @@ these_dts &lt;- lapply( these_files , function( this_file ) {
   
 } )</pre>
 
-</article></slide><slide class=""><hgroup><h2><em>Bônus:</em> como ler todo o SINASC/DataSUS 2017!</h2></hgroup><article  class="smaller" id="bonus-como-ler-todo-o-sinascdatasus-2017-3">
+</article></slide><slide class=""><hgroup><h2><em>Bônus:</em> como ler todo o SINASC/DataSUS 2017!</h2></hgroup><article  id="bonus-como-ler-todo-o-sinascdatasus-2017-3" class="smaller">
 
 <ul>
 <li>O <em>terceiro passo</em> envolve <em>&ldquo;empilhar&rdquo;</em> cada base de dados.</li>
@@ -5560,6 +5560,8 @@ dim( dt )
 </ul>
 
 </article></slide><slide class=""><hgroup><h2><em>Bônus:</em> como ler todo o SINASC/DataSUS 2017!</h2></hgroup><article  id="bonus-como-ler-todo-o-sinascdatasus-2017-4">
+
+<p>Agora, vamos reproduzir a tabela que vimos <a href='#26' title=''>neste slide</a>.</p>
 
 <pre class = 'prettyprint lang-r'># calcula agregados por região:
 dt[ , .( nnasc = .N ) , by = .( regiao = substr( codmunres , 1, 1 ) ) ]

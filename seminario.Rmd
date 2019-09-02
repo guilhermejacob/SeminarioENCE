@@ -529,6 +529,8 @@ dim( dt )
 
 ## *Bônus:* como ler todo o SINASC/DataSUS 2017!
 
+Agora, vamos reproduzir a tabela que vimos [neste slide](#26).
+
 ```{r, eval = FALSE }
 # calcula agregados por região:
 dt[ , .( nnasc = .N ) , by = .( regiao = substr( codmunres , 1, 1 ) ) ]
