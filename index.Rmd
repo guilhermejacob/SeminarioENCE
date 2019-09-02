@@ -451,7 +451,7 @@ Para salvar nosso banco de dados, a ideia é a mesma da seção anterior:
 
 ```{r ,  eval=FALSE}
 # salva banco de dados como
-# arquivo "rj2017.Rds" na pasta "dados/ped"
+# arquivo "rj2017.Rds" na pasta "dados/sinasc"
 saveRDS( df , "dados/sinasc/rj2017.Rds" , compress = TRUE  )
 ```
 
