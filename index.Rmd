@@ -224,7 +224,7 @@ Então, ficaremos com o arquivo `PEDRMF2016.SAV`:
 
 ```{r eval = TRUE }
 # filtra arquivo .SAV
-data_file <- these_files[ grepl( "\\.SAV$" , these_files ) ]
+data_file <- these_files[ grepl( "\\.SAV$" , these_files , useBytes = TRUE ) ]
 
 # importa dados do arquivo usando a função `read_sav` do `haven`
 df <- read_sav( data_file )
@@ -550,6 +550,6 @@ Agora é sua vez. Com o que aprendemos hoje, realize as tarefas abaixo:
 1. Escolha uma UF;
 2. Colete os respectivos microdados de [nascidos vivos](ftp://ftp.datasus.gov.br/dissemin/publicos/SINASC/NOV/) e de [óbitos](ftp://ftp.datasus.gov.br/dissemin/publicos/SIM/CID10/DORES/) em 2010 e 2015;
 3. Leia os microdados.
-4. Calcule as Taxas de Mortalidade Infantil da UF escolhida nestes anos.
+4. Calcule as Taxas de Mortalidade Infantil nestes anos.
 
 # Obrigado! | GitHub: guilhermejacob | Twitter: guijacob91
