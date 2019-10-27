@@ -4613,9 +4613,9 @@ unzip( tf , exdir = td , junkpaths = TRUE )
 # lista arquivos no diretório
 ( these_files &lt;- list.files( td , full.names = TRUE ) )</pre>
 
-<pre >## [1] &quot;/tmp/RtmpU2uSJL/unzips/Documenta\x87\xc6o RMF - Vers\xc6o 2016.pdf&quot;
-## [2] &quot;/tmp/RtmpU2uSJL/unzips/PEDRMF2016.SAV&quot;                             
-## [3] &quot;/tmp/RtmpU2uSJL/unzips/PEDRMF2016.TXT&quot;</pre>
+<pre >## [1] &quot;/tmp/RtmplqvWnA/unzips/Documenta\x87\xc6o RMF - Vers\xc6o 2016.pdf&quot;
+## [2] &quot;/tmp/RtmplqvWnA/unzips/PEDRMF2016.SAV&quot;                             
+## [3] &quot;/tmp/RtmplqvWnA/unzips/PEDRMF2016.TXT&quot;</pre>
 
 </article></slide><slide class=""><hgroup><h2>Processando o arquivo de dados</h2></hgroup><article  class="smaller" id="processando-o-arquivo-de-dados">
 
@@ -5573,6 +5573,17 @@ dt[ , .( nnasc = .N ) , by = .( regiao = substr( codmunres , 1, 1 ) ) ]
 # 3:      3 1151832
 # 4:      4  397604
 # 5:      5  244106</pre>
+
+</article></slide><slide class=""><hgroup><h2>Exercício</h2></hgroup><article  id="exercicio">
+
+<p>Agora é sua vez. Com o que aprendemos hoje, realize as tarefas abaixo:</p>
+
+<ol>
+<li>Escolha uma UF;</li>
+<li>Colete os respectivos microdados de <a href='ftp://ftp.datasus.gov.br/dissemin/publicos/SINASC/NOV/' title=''>nascidos vivos</a> e de <a href='ftp://ftp.datasus.gov.br/dissemin/publicos/SIM/CID10/DORES/' title=''>óbitos</a> em 2010 e 2015;</li>
+<li>Leia os microdados.</li>
+<li>Calcule as Taxas de Mortalidade Infantil da UF escolhida nestes anos.</li>
+</ol>
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Obrigado! </h2><h3> GitHub: guilhermejacob | Twitter: guijacob91</h3></hgroup><article  id="obrigado-github-guilhermejacob-twitter-guijacob91"></article></slide>
 

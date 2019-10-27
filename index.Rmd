@@ -543,4 +543,13 @@ dt[ , .( nnasc = .N ) , by = .( regiao = substr( codmunres , 1, 1 ) ) ]
 # 5:      5  244106
 ```
 
+## Exercício
+
+Agora é sua vez. Com o que aprendemos hoje, realize as tarefas abaixo:
+
+1. Escolha uma UF;
+2. Colete os respectivos microdados de [nascidos vivos](ftp://ftp.datasus.gov.br/dissemin/publicos/SINASC/NOV/) e de [óbitos](ftp://ftp.datasus.gov.br/dissemin/publicos/SIM/CID10/DORES/) em 2010 e 2015;
+3. Leia os microdados.
+4. Calcule as Taxas de Mortalidade Infantil da UF escolhida nestes anos.
+
 # Obrigado! | GitHub: guilhermejacob | Twitter: guijacob91
