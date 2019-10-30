@@ -1,5 +1,7 @@
 ### Resolução de Exercício
 
+# NOTA: se você usa linux/mac, substitua o "\\r\\n" por "\n".
+
 # define pasta de saída
 output_folder <- "~/dados/exercicio"
 dir.create( output_folder , recursive = TRUE , showWarnings = FALSE )
@@ -20,7 +22,7 @@ ftp_sinasc <- "ftp://ftp.datasus.gov.br/dissemin/publicos/SINASC/NOV/DNRES/"
 nasc_links <- getURL( ftp_sinasc , .opts = list( dirlistonly = TRUE ) )
 
 # separa nomes de arquivos
-nasc_links <- strsplit( nasc_links , "\n" , useBytes = TRUE )[[1]]
+nasc_links <- strsplit( nasc_links , "\\r\\\r\\n" , useBytes = TRUE )[[1]]
 
 # filtra arquivos de 2010 e 2015
 nasc_links <- nasc_links[ grepl( "2010|2015" , nasc_links ) ]
@@ -32,7 +34,7 @@ nasc_links <- nasc_links[ grepl( "DNAC" , nasc_links ) ]
 nasc_links <- paste0( ftp_sinasc , nasc_links )
 
 # baixa arquivos
-for (this_link in nasc_links) download.file( this_link , file.path( output_folder , basename( this_link ) ) )
+for (this_link in nasc_links) download.file( this_link , file.path( output_folder , basename( this_link ) ) , mode = "wb" )
 
 # 2.b Óbitos
 
@@ -43,7 +45,7 @@ ftp_sim <- "ftp://ftp.datasus.gov.br/dissemin/publicos/SIM/CID10/DORES/"
 obit_links <- getURL( ftp_sim , .opts = list( dirlistonly = TRUE ) )
 
 # separa nomes de arquivos
-obit_links <- strsplit( obit_links , "\n" , useBytes = TRUE )[[1]]
+obit_links <- strsplit( obit_links , "\\r\\n" , useBytes = TRUE )[[1]]
 
 # filtra arquivos de 2010 e 2015
 obit_links <- obit_links[ grepl( "2010|2015" , obit_links ) ]
@@ -55,7 +57,7 @@ obit_links <- obit_links[ grepl( "DOAC" , obit_links ) ]
 obit_links <- paste0( ftp_sim , obit_links )
 
 # baixa arquivos
-for (this_link in obit_links) download.file( this_link , file.path( output_folder , basename( this_link ) ) )
+for (this_link in obit_links) download.file( this_link , file.path( output_folder , basename( this_link ) ) , mode = "wb" )
 
 ### 3. Leia os microdados.
 

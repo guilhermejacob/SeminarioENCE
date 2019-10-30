@@ -3,7 +3,7 @@ title: "Coletando dados públicos"
 subtitle: "Exemplos usando o R"
 author: "Guilherme Jacob"
 github: github.com/guilhermejacob
-date: "02/09/2019"
+date: "29/10/2019"
 output: 
     ioslides_presentation:
       # smaller: true
@@ -458,7 +458,7 @@ saveRDS( df , "dados/sinasc/rj2017.Rds" , compress = TRUE  )
 ## *Bônus:* como ler todo o SINASC/DataSUS 2017! {.smaller}
 
 - E se estivermos interessados nos agregados do país naquele ano?
-- Precisamos todas os dados daquele ano.
+- Precisamos de todos os dados daquele ano.
 
 - Problema: vários arquivos.
 
@@ -548,7 +548,7 @@ dt[ , .( nnasc = .N ) , by = .( regiao = substr( codmunres , 1, 1 ) ) ]
 Agora é sua vez. Com o que aprendemos hoje, realize as tarefas abaixo:
 
 1. Escolha uma UF;
-2. Colete os respectivos microdados de [nascidos vivos](ftp://ftp.datasus.gov.br/dissemin/publicos/SINASC/NOV/) e de [óbitos](ftp://ftp.datasus.gov.br/dissemin/publicos/SIM/CID10/DORES/) em 2010 e 2015;
+2. Colete os respectivos microdados de [nascidos vivos](ftp://ftp.datasus.gov.br/dissemin/publicos/SINASC/NOV/DNRES/) e de [óbitos](ftp://ftp.datasus.gov.br/dissemin/publicos/SIM/CID10/DORES/) em 2010 e 2015;
 3. Leia os microdados.
 4. Calcule as Taxas de Mortalidade Infantil nestes anos.
 
