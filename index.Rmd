@@ -21,6 +21,11 @@ knitr::opts_chunk$set( echo = TRUE , eval = TRUE , message=FALSE, warning=FALSE 
 options( useBytes = TRUE )
 ```
 
+## Aviso 
+
+- A apresentação a seguir foi escrita no *Ubuntu* e os códigos precisam de *pequenas adaptações* para funcionar no *Windows*.
+- Basicamente, onde tem `"\n"`, substitua por `"\\r\\n"`.
+
 # Coisas que precisamos saber
 
 ## O que é *web scraping*?
@@ -166,7 +171,7 @@ td <- file.path( tempdir() , "unzips" ) # pasta
 this_link <- these_links[ 1 ]
 
 # faz o download
-download.file( this_link , tf )
+download.file( this_link , tf , mode = "wb" )
 
 # extrai arquivo para pasta temporária
 unzip( tf , exdir = td , junkpaths = TRUE )
@@ -334,7 +339,7 @@ this_ftp <- "ftp://ftp.datasus.gov.br/dissemin/publicos/SINASC/NOV/DNRES/"
 
 ## Coletando links
 
-- O nome de cada arquivo é parado por um "`\n`".
+- O nome de cada arquivo é separado por um "`\n`".
 
 Vamos resolver isso:
 
@@ -412,7 +417,7 @@ for ( this_link in these_links ) {
   this_file <- file.path( output_folder , this_file )
   
   # faz download do arquivo
-  download.file( this_link , this_file )
+  download.file( this_link , this_file , mode = "wb" )
   
 }
 ```
@@ -551,5 +556,7 @@ Agora é sua vez. Com o que aprendemos hoje, realize as tarefas abaixo:
 2. Colete os respectivos microdados de [nascidos vivos](ftp://ftp.datasus.gov.br/dissemin/publicos/SINASC/NOV/DNRES/) e de [óbitos](ftp://ftp.datasus.gov.br/dissemin/publicos/SIM/CID10/DORES/) em 2010 e 2015;
 3. Leia os microdados.
 4. Calcule as Taxas de Mortalidade Infantil nestes anos.
+
+PS.: você pode encontrar o exercício resolvido [na pasta "scripts" deste repositório](https://github.com/guilhermejacob/SeminarioENCE).
 
 # Obrigado! | GitHub: guilhermejacob | Twitter: guijacob91

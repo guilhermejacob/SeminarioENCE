@@ -4391,7 +4391,14 @@ slide:not(.current) .plotly.html-widget{
           </hgroup>
   </slide>
 
-<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Coisas que precisamos saber</h2></hgroup><article  id="coisas-que-precisamos-saber">
+<slide class=""><hgroup><h2>Aviso</h2></hgroup><article  id="aviso">
+
+<ul>
+<li>A apresentação a seguir foi escrita no <em>Ubuntu</em> e os códigos precisam de <em>pequenas adaptações</em> para funcionar no <em>Windows</em>.</li>
+<li>Basicamente, onde tem <code>&quot;\n&quot;</code>, substitua por <code>&quot;\\r\\n&quot;</code>.</li>
+</ul>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Coisas que precisamos saber</h2></hgroup><article  id="coisas-que-precisamos-saber">
 
 </article></slide><slide class=""><hgroup><h2>O que é <em>web scraping</em>?</h2></hgroup><article  id="o-que-e-web-scraping">
 
@@ -4604,7 +4611,7 @@ td &lt;- file.path( tempdir() , &quot;unzips&quot; ) # pasta
 this_link &lt;- these_links[ 1 ]
 
 # faz o download
-download.file( this_link , tf )
+download.file( this_link , tf , mode = &quot;wb&quot; )
 
 # extrai arquivo para pasta temporária
 unzip( tf , exdir = td , junkpaths = TRUE )
@@ -4612,9 +4619,9 @@ unzip( tf , exdir = td , junkpaths = TRUE )
 # lista arquivos no diretório
 ( these_files &lt;- list.files( td , full.names = TRUE ) )</pre>
 
-<pre >## [1] &quot;/tmp/RtmpgjeA1n/unzips/Documenta\x87\xc6o RMF - Vers\xc6o 2016.pdf&quot;
-## [2] &quot;/tmp/RtmpgjeA1n/unzips/PEDRMF2016.SAV&quot;                             
-## [3] &quot;/tmp/RtmpgjeA1n/unzips/PEDRMF2016.TXT&quot;</pre>
+<pre >## [1] &quot;/tmp/RtmpjFlBx5/unzips/Documenta\x87\xc6o RMF - Vers\xc6o 2016.pdf&quot;
+## [2] &quot;/tmp/RtmpjFlBx5/unzips/PEDRMF2016.SAV&quot;                             
+## [3] &quot;/tmp/RtmpjFlBx5/unzips/PEDRMF2016.TXT&quot;</pre>
 
 </article></slide><slide class=""><hgroup><h2>Processando o arquivo de dados</h2></hgroup><article  class="smaller" id="processando-o-arquivo-de-dados">
 
@@ -5261,7 +5268,7 @@ this_ftp &lt;- &quot;ftp://ftp.datasus.gov.br/dissemin/publicos/SINASC/NOV/DNRES
 </article></slide><slide class=""><hgroup><h2>Coletando links</h2></hgroup><article  id="coletando-links-5">
 
 <ul>
-<li>O nome de cada arquivo é parado por um &ldquo;<code>\n</code>&rdquo;.</li>
+<li>O nome de cada arquivo é separado por um &ldquo;<code>\n</code>&rdquo;.</li>
 </ul>
 
 <p>Vamos resolver isso:</p>
@@ -5358,7 +5365,7 @@ for ( this_link in these_links ) {
   this_file &lt;- file.path( output_folder , this_file )
   
   # faz download do arquivo
-  download.file( this_link , this_file )
+  download.file( this_link , this_file , mode = &quot;wb&quot; )
   
 }</pre>
 
@@ -5583,6 +5590,8 @@ dt[ , .( nnasc = .N ) , by = .( regiao = substr( codmunres , 1, 1 ) ) ]
 <li>Leia os microdados.</li>
 <li>Calcule as Taxas de Mortalidade Infantil nestes anos.</li>
 </ol>
+
+<p>PS.: você pode encontrar o exercício resolvido <a href='https://github.com/guilhermejacob/SeminarioENCE' title=''>na pasta &ldquo;scripts&rdquo; deste repositório</a>.</p>
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Obrigado! </h2><h3> GitHub: guilhermejacob | Twitter: guijacob91</h3></hgroup><article  id="obrigado-github-guilhermejacob-twitter-guijacob91"></article></slide>
 
